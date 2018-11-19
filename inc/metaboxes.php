@@ -1,6 +1,6 @@
 <?php
 /**
- * The file Contains all metaboxes used in the 'Reveal' Theme using Metabox Plugin
+ * The file Contains all metaboxes used in the 'Codexin Framework' using Metabox Plugin
  *
  * @since 1.0
  */

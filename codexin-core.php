@@ -13,9 +13,10 @@ Text Domain: codexin
 // Declaring Global Constants for plugin paths and URL
 define( 'CODEXIN_CORE_VERSION', '1.0' );
 
+define( 'CODEXIN_CORE_ROOT_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CODEXIN_CORE_INC_DIR', plugin_dir_path( __FILE__ ) . 'inc' );
 define( 'CODEXIN_CORE_ASSET_DIR', plugin_dir_url( __FILE__ ) . 'assets' );
-define( 'CODEXIN_CORE_JS_DIR', CODEXIN_CORE_ASSET_DIR . '/js/shortcode-js' );
+define( 'CODEXIN_CORE_JS_DIR', plugin_dir_url( __FILE__ ) . '/assets/js/shortcode-js' );
 define( 'CODEXIN_CORE_SC_DIR', plugin_dir_path( __FILE__ ) . 'inc/shortcodes' );
 define( 'CODEXIN_CORE_WDGT_DIR', plugin_dir_path( __FILE__ ) . 'inc/widgets' );
 
@@ -60,6 +61,9 @@ if( ! class_exists( 'Codexin_Core' ) ) {
 			// Registering and Integrating the Shortcodes in King Composer 
 			// require_once CODEXIN_CORE_INC_DIR . '/shortcode_loader.php';
 
+			// Registering templates
+			require_once CODEXIN_CORE_INC_DIR . '/template-loader.php';
+
 			// Adding Helper File
 			require_once CODEXIN_CORE_INC_DIR . '/helpers.php';
 
@@ -67,7 +71,6 @@ if( ! class_exists( 'Codexin_Core' ) ) {
 			require_once CODEXIN_CORE_INC_DIR . '/post_like.php';
 
 			// Initalizing custom widgets
-			require_once CODEXIN_CORE_WDGT_DIR . '/address-box-widget.php';
 			require_once CODEXIN_CORE_WDGT_DIR . '/instagram-widget.php';
 			require_once CODEXIN_CORE_WDGT_DIR . '/popular-posts-widget.php';
 			require_once CODEXIN_CORE_WDGT_DIR . '/recent-posts-widget.php';
@@ -203,36 +206,4 @@ if( ! class_exists( 'Codexin_Core' ) ) {
 
 // Instantiating the Master Class
 $codexin_core = new Codexin_Core();
-
-
-
-// add_filter('template_include', 'testimonial_archive_template');
-
-// function testimonial_archive_template( $template ) {
-// 	if ( is_post_type_archive('testimonial') ) {
-// 		$theme_files = array('archive-testimonial.php', 'templates/archive-testimonial.php');
-// 		$exists_in_theme = locate_template( $theme_files, false );
-// 		if ( $exists_in_theme != '' ) {
-// 			return $exists_in_theme;
-// 		} else {
-// 			return plugin_dir_path(__FILE__) . 'templates/archive-testimonial.php';
-// 		}
-// 	}
-// 	return $template;
-// }
-
-// add_filter( 'single_template', 'testimonial_single_template', 10, 1 );
-// function testimonial_single_template( $single_template ) {
-// 	if ( is_singular('testimonial') ) {
-// 		$theme_files = array('single-testimonial.php', 'templates/single-testimonial.php');
-// 		$exists_in_theme = locate_template( $theme_files, false );
-// 		if ( $exists_in_theme != '' ) {
-// 			return $exists_in_theme;
-// 		} else {
-// 			return plugin_dir_path(__FILE__) . 'templates/single-testimonial.php';
-// 		}
-// 	}
-// 	return $template;
-// }
-
 ?>
