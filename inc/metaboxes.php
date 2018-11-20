@@ -92,7 +92,7 @@ function codexin_register_meta_boxes( $meta_boxes ) {
             array(
                 'name'      => esc_html__( 'Disable Page Title Area?', 'codexin' ),
                 'desc'      => esc_html__( 'Checking this will disable the Page Title Section', 'codexin' ),
-                'id'        => $prefix . 'disable_page_titlesdf',
+                'id'        => $prefix . 'disable_page_title',
                 'type'      => 'checkbox',
                 'clone'     => false,
             ),
